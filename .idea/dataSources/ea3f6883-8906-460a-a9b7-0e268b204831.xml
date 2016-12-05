@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Sqlite (Xerial) - m06moviedb.db">
+  <database-model serializer="dbm" rdbms="SQLITE" format-version="2.6">
+    <schema id="1">
+      <visible>1</visible>
+    </schema>
+    <table id="2" parent="1" name="ACTORES"/>
+    <table id="3" parent="1" name="PELICULAS"/>
+    <column id="4" parent="2" name="ID_PELICULA">
+      <mandatory>1</mandatory>
+      <data-type>INT(0,-1)|4</data-type>
+    </column>
+    <column id="5" parent="2" name="ID_CAST">
+      <mandatory>1</mandatory>
+      <data-type>INT(0,-1)|4</data-type>
+    </column>
+    <column id="6" parent="2" name="ID_ACTOR">
+      <mandatory>1</mandatory>
+      <data-type>INT(0,-1)|4</data-type>
+    </column>
+    <column id="7" parent="2" name="ACTOR">
+      <mandatory>1</mandatory>
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="8" parent="2" name="CHARACTER">
+      <mandatory>1</mandatory>
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <index id="9" parent="2" name="sqlite_autoindex_ACTORES_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>ID_PELICULA
+ID_CAST</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="10" parent="2">
+      <columns>ID_CAST</columns>
+      <primary>1</primary>
+    </key>
+    <column id="11" parent="3" name="ID">
+      <mandatory>1</mandatory>
+      <data-type>INT(0,-1)|4</data-type>
+    </column>
+    <column id="12" parent="3" name="TITULO">
+      <mandatory>1</mandatory>
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="13" parent="3" name="FECHA_ESTRENO">
+      <mandatory>1</mandatory>
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <key id="14" parent="3">
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>

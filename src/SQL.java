@@ -15,9 +15,8 @@ public class SQL {
             System.out.println("La BBDD ha sigut creada");
 
             stmt = c.createStatement();
-                /*
-                    Creo les taules i les executo.
-                 */
+
+            //Creamos la tabla peliculas y ejecutamos
             String query = "CREATE TABLE IF NOT EXISTS PELICULAS " +
                     "(ID INT PRIMARY KEY     NOT NULL," +
                     " TITULO TEXT    NOT NULL, " +
@@ -25,6 +24,7 @@ public class SQL {
 
             stmt.executeUpdate(query);
 
+            //creamos la tabla actores y ejecutamos
             String query2 = "CREATE TABLE IF NOT EXISTS ACTORES " +
                     "(ID_PELICULA INT    NOT NULL," +
                     " ID_CAST   INT    NOT NULL," +

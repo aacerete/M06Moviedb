@@ -14,6 +14,7 @@ public class MoviedbApi {
     private String API_KEY = "cb2e3959094291c9f867e547c47f14ba";
     private String URI = "https://api.themoviedb.org/3";
 
+    //metode que fa crida a la api
     private String cridaAPI(String rutaURL) throws Exception {
 
         StringBuilder result = new StringBuilder();
@@ -29,6 +30,7 @@ public class MoviedbApi {
         return result.toString();
     }
 
+    //metode per a obtenir pelis segons id
     public String getPelis (int id) throws Exception {
 
         String rutaPelis = URI+"/movie/"+id;
@@ -37,6 +39,7 @@ public class MoviedbApi {
         return respuesta ;
     }
 
+    //metode per a obtenir els credits segons la id de la peli
     public String getCredits (int id) throws Exception {
 
         String rutaPelis = URI+"/movie/"+id+"/credits";

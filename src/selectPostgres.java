@@ -3,7 +3,6 @@
  */
 
 import java.sql.*;
-import java.util.Properties;
 import java.util.Scanner;
 
 public class selectPostgres {
@@ -30,21 +29,21 @@ public class selectPostgres {
 
             switch (menu) {
                 case 1:
-                    mostrarMovies();
+                    verMovies();
                     break;
                 case 2:
                     System.out.println("Introduce el Id de la pelicula");
                     int ID = teclat.nextInt();
 
-                    mostrarMovies(ID);
+                    verMovies(ID);
                     break;
                 case 3:
-                    mostrarActor();
+                    verActors();
                     break;
                 case 4:
                     System.out.println("Introduce el ID del actor");
                     ID = teclat.nextInt();
-                    selectPostgres.mostrarMoviesActor(ID);
+                    selectPostgres.verMoviesActors(ID);
                     break;
                 case 5:
                     System.out.println("Fin");
@@ -54,20 +53,16 @@ public class selectPostgres {
     }
 
 
-    public static void mostrarMovies()    {
+    public static void verMovies()    {
 
         Connection c = null;
         Statement stmt = null;
 
         try {
 
-            String url = "jdbc:postgresql://172.31.73.191:5432/m06moviedb";
-            Properties props = new Properties();
-            props.setProperty("user","aacerete");
-            props.setProperty("password","aacerete");
             Class.forName("org.postgresql.Driver");
-            c = DriverManager.getConnection(url,props);
-            c.setAutoCommit(false);
+            c = DriverManager.getConnection("jdbc:postgresql://172.31.73.191:5432/m06moviedb","aacerete","aacerete");
+
 
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM MOVIES;" );
@@ -95,19 +90,15 @@ public class selectPostgres {
     }
 
 
-    public static void mostrarMovies(int ID){
+    public static void verMovies(int ID){
 
         Connection c = null;
         Statement stmt = null;
 
         try {
-            String url = "jdbc:postgresql://172.31.73.191:5432/m06moviedb";
-            Properties props = new Properties();
-            props.setProperty("user","aacerete");
-            props.setProperty("password","aacerete");
             Class.forName("org.postgresql.Driver");
-            c = DriverManager.getConnection(url,props);
-            c.setAutoCommit(false);
+            c = DriverManager.getConnection("jdbc:postgresql://172.31.73.191:5432/m06moviedb","aacerete","aacerete");
+
 
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM MOVIES;" );
@@ -132,18 +123,14 @@ public class selectPostgres {
             System.exit(0);
         }
     }
-    public static void mostrarActor(){
+    public static void verActors(){
 
         Connection c = null;
         Statement stmt = null;
         try {
-            String url = "jdbc:postgresql://172.31.73.191:5432/m06moviedb";
-            Properties props = new Properties();
-            props.setProperty("user","aacerete");
-            props.setProperty("password","aacerete");
             Class.forName("org.postgresql.Driver");
-            c = DriverManager.getConnection(url,props);
-            c.setAutoCommit(false);
+            c = DriverManager.getConnection("jdbc:postgresql://172.31.73.191:5432/m06moviedb","aacerete","aacerete");
+
 
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM ACTORS;" );
@@ -167,18 +154,14 @@ public class selectPostgres {
         }
     }
 
-    public static void mostrarMoviesActor(int ID){
+    public static void verMoviesActors(int ID){
 
         Connection c = null;
         Statement stmt = null;
         try {
-            String url = "jdbc:postgresql://172.31.73.191:5432/m06moviedb";
-            Properties props = new Properties();
-            props.setProperty("user","aacerete");
-            props.setProperty("password","aacerete");
             Class.forName("org.postgresql.Driver");
-            c = DriverManager.getConnection(url,props);
-            c.setAutoCommit(false);
+            c = DriverManager.getConnection("jdbc:postgresql://172.31.73.191:5432/m06moviedb","aacerete","aacerete");
+
 
             stmt = c.createStatement();
 

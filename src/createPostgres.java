@@ -13,26 +13,19 @@ public class createPostgres {
             Statement stmt = null;
 
             try {
-                String url = "jdbc:postgresql://172.31.73.191:5432/m06moviedb";
-                Properties props = new Properties();
-                props.setProperty("user","aacerete");
-                props.setProperty("password","aacerete");
+
                 Class.forName("org.postgresql.Driver");
-
-                c = DriverManager.getConnection(url,props);
-                c.setAutoCommit(false);
-
-
-                System.out.println("Base de Datos Creada");
-
+                c = DriverManager.getConnection("jdbc:postgresql://172.31.73.191:5432/m06moviedb","aacerete","aacerete");
                 stmt = c.createStatement();
 
+                System.out.println("Base de Datos creada con éxito");
 
-                //Creamos tablas
+                //Creamos las tablas de peliculas y de actores
+
                 String sql_movies = "CREATE TABLE MOVIES " +
                         "(ID INT PRIMARY KEY     NOT NULL," +
                         " ORIGINAL_TITLE TEXT    NOT NULL, " +
-                        " RELEASE_DATE   TEXT    NOT NULL);";
+                        " RELEASE_DATE   TEXT    NOT NULL)";
 
                 stmt.executeUpdate(sql_movies);
 
@@ -41,21 +34,20 @@ public class createPostgres {
                         " ID_PELICULA   INT    NOT NULL,"+
                         " NAME TEXT    NOT NULL, " +
                         " CHARACTER   TEXT    NOT NULL," +
-                        "PRIMARY KEY (ID,ID_PELICULA));";
+                        "PRIMARY KEY (ID,ID_PELICULA))";
 
                 stmt.executeUpdate(sql_actor);
+
                 stmt.close();
                 c.close();
 
-                System.out.println("ha ido");
-
-
             } catch ( Exception e ) {
+
                 System.err.println( e.getClass().getName() + ": " + e.getMessage() );
                 System.exit(0);
             }
 
-            System.out.println("Tablas creadas");
+            System.out.println("Tablas creadas con éxito");
         }
 
     }
